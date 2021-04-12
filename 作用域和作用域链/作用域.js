@@ -26,7 +26,7 @@ console.log(obj.name);
 function test(a,b){
   
 }
-console.log(test.name) */
+console.log(test) */
 
 /* 
   函数也是一种对象，是一种引用类型
@@ -127,7 +127,7 @@ a();
 
 */
 
-function a(){
+/* function a(){
   function b(){
     function c(){
 
@@ -136,7 +136,7 @@ function a(){
   }
   b()
 }
-a()
+a() */
 
 /* 
   a定义: a.[[scope]] -> 0:GO

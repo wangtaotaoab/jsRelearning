@@ -41,27 +41,27 @@
 
 */
 
-// function breadMgr(num){
-//   var breadNum = num || 10
-//   function supply(){
-//     breadNum += 10
-//     console.log(breadNum)
-//   }
+/* function breadMgr(num){
+  var breadNum = num || 10
+  function supply(){
+    breadNum += 10
+    console.log(breadNum)
+  }
 
-//   function sale(){
-//     breadNum --;
-//     console.log(breadNum)
-//   }
+  function sale(){
+    breadNum --;
+    console.log(breadNum)
+  }
 
-//   return {
-//     supply,
-//     sale
-//   }
-// }
+  return {
+    supply,
+    sale
+  }
+}
 
-// var breadMgr = breadMgr(50)
-// breadMgr.supply()
-// breadMgr.sale()
+var breadMgr = breadMgr(50)
+breadMgr.supply()
+breadMgr.sale() */
 
 function sunSched(){
   var sunSched = ''

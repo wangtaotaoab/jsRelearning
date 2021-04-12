@@ -10,7 +10,7 @@
   })()
    //前面的括号里面是一个函数声明，加上括号就变成函数表示式了，后面的括号其实就是函数的执行符号
    //一个语句加上括号就是表达式了。不管是什么，被括号包裹了都会变成表达式    
-   //一定是执行符号才能被执行符号执行
+   //一定是执行符号才能被执行符号执行 
 
    函数表达式：
               var a = fuction(){}
@@ -43,10 +43,10 @@
   console.log(a + b)
 })(9,2)  */
 
-// var num = (function(a,b){
-//   return a + b
-// })(8,2) 
-// console.log(num)
+/* var num = (function(a,b){
+  return a + b
+})(8,2) 
+console.log(num) */
 
 // var a = function(){
 //   // console.log(2)
@@ -56,20 +56,20 @@
 
 // 经典面试题
 
-// function  test(){
-//   var a = [];
-//   for(var i=0;i<10;i++){
-//     a[i] = function(){
-//       console.log(i + "   ")
-//     }
-//   }
-//   return a
-// }
+function  test(){
+  var a = [];
+  for(var i=0;i<10;i++){
+    a[i] = function(){
+      console.log(i + "   ")
+    }
+  }
+  return a
+}
 
-// var myArr = test()
-// for(var j=0;j<10;j++){
-//   myArr[j]();
-// }
+var myArr = test()
+for(var j=0;j<10;j++){
+  myArr[j]();
+}
 
 /* 
   结果打印10个10  
