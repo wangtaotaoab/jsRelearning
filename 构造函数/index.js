@@ -8,7 +8,9 @@
 
 // function Teacher(){
 //   /* 
-//     这里的this在没有实例化对象之前，根本不存在。实例化对象之后，this指向实例化对象。
+//     成为构造函数的前提是要new实例化对象
+//     这里的this在没有实例化对象之前，this指向window。实例化对象之后，this指向实例化对象。
+      //  在构造函数中this指向实例化对象
 
 //     原因是：函数在定义的时候，会产生GO。但是不会看函数内部的东西。所以this没有生成。
 //   */
@@ -24,7 +26,7 @@
 
 
 /* 
-  实例化之后，this才生成
+  实例化之后，将原本指向window的this指向了实例化对象
 */
 /* var teacher1 = new Teacher() 
 teacher1.cut()
@@ -76,18 +78,18 @@ var a2 = new Teacher({
 
 // 作业
 
-// 写一个构造函数，完成数字相加和想乘的功能
-function Compute(){
-  const args = arguments;
-  this.plus = function(){
-    var res = 0;
-    for(var i=0;i<args.length;i++){
-      var item = args[i];
-      res += item
-    }
-  }
-  this.times = function(){
+// // 写一个构造函数，完成数字相加和想乘的功能
+// function Compute(){
+//   const args = arguments;
+//   this.plus = function(){
+//     var res = 0;
+//     for(var i=0;i<args.length;i++){
+//       var item = args[i];
+//       res += item
+//     }
+//   }
+//   this.times = function(){
 
-  }
-}
-var compute = new Compute(2,4,6)
+//   }
+// }
+// var compute = new Compute(2,4,6)
