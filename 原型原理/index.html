@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+/*     function Teacher(){
+      this.succ = {
+        baidu:12,
+        tengxun:36
+      }
+    }
+    var teacher = new Teacher()
+
+    function Student(){
+      this.pSkill = 'HTML'
+    }
+    Student.prototype = teacher;
+
+    var student = new Student()
+
+    // console.log(student.__proto__)
+    student.succ.baidu = 50;
+    console.log(student)
+    console.log(student.__proto__) */
+    /* 
+      对象原型里有一个toString方法需要记住
+      不是所有的对象都继承于Object.prototype。当使用Object.create(null)时，就不继承
+    */
+    var obj = Object.create(null);
+    obj.num = 2;
+
+    var newObj = {
+      num:3
+    }
+    var a = newObj.num.toString();
+    console.log(a);
+    console.log(typeof(a));
+
+    var b = obj.toString();
+    console.log(b);
+  </script>
+</body>
+</html>
