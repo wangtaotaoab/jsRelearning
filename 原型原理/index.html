@@ -31,7 +31,7 @@
       对象原型里有一个toString方法需要记住
       不是所有的对象都继承于Object.prototype。当使用Object.create(null)时，就不继承
     */
-    var obj = Object.create(null);
+ /*    var obj = Object.create(null);
     obj.num = 2;
 
     var newObj = {
@@ -42,7 +42,112 @@
     console.log(typeof(a));
 
     var b = obj.toString();
-    console.log(b);
+    console.log(b); */
+
+    /* 
+    // undefined null 是没有toString方法的
+    var num = 1;
+    // 原始值是没有属性的，之所以number、string可以有toString方法，是因为通过包装类进行转化成对象了。对象里才有toString方法。
+    // num.toString() ->  toString()
+    var num1 = new Number(num); 
+    // 通过系统内部的Number方法实例出来一个对象  这个对象指向的是Number()函数，num1使用的是自身的toString方法，而不是object里的方法
+    // undefined和null没有包装类转化，所以不能变成对象
+    // 包装类其实是Object.create(Object.prototype)
+    // document.write() 里面有一个隐式转换toString方法
+     
+
+    var num = 1;
+    var obj = {};
+    var obj2 = Object.create(null);
+    document.write(num);
+    document.write(obj);
+    document.write(obj2);
+    // 报错，不能把对象转化成原始值。原因：document.write会将内容转化成原始值(string)打印出来。 obj2没有原型，所以继承不了Object.prototype，也就没有toString方法。所以无法转换 */
+    
+
+    /* console.log(Object.prototype.toString.call(1)) //[object Number]   object的Number构造函数
+    console.log(Number.prototype.toString.call(1)) // "1" */
+
+    /* 
+    // 这就是js的圣杯模式，使用中间件
+    function Teacher(){
+      this.name = "zhangsan",
+      this.age = 40
+    }
+    Teacher.prototype = {
+      pSkill:'aasdfas'
+    }
+    var t = new Teacher();
+    console.log(t)
+
+
+    function Buffer(){}
+    Buffer.prototype = Teacher.prototype;
+    var buffer = new Buffer();
+    console.log(buffer);
+
+
+    function Student(){
+
+    }
+    Student.prototype = buffer;
+    Student.prototype.name = "kajflaskjdlaskj"
+    var student = new Student();
+    console.log(student); */
+    
+
+/*     // 封装一个继承
+    function inherit(Target,Origin){
+      // Target 目标   Target 源
+      // 顺序不能换
+      function Buffer(){}
+      Buffer.prototype = Origin.prototype;
+      Target.prototype = new Buffer();
+      Target.prototype.constructor = Target; // 还原构造器
+      Target.prototype.super_class = Origin; // 需要记录继承源。被继承的叫超类
+    }
+    function Teacher(){
+      this.name = "zhangsan",
+      this.age = 40
+    }
+    Teacher.prototype = {
+      pSkill:'aasdfas'
+    }
+    var t = new Teacher();
+    function Student(){
+      this.hehe = "9999"
+    }
+    inherit(Student,Teacher);
+    Student.prototype.name = "kajflaskjdlaskj";
+    var student = new Student();
+    console.log(student); */
+
+    // 闭包
+    var inherit = (function(){
+      var Buffer = function() {}
+      return function(Target,Origin){
+        Buffer.prototype = Origin.prototype;
+        Target.prototype = new Buffer();
+        Target.prototype.constructor = Target; // 还原构造器
+        Target.prototype.super_class = Origin; // 需要记录继承源。被继承的叫超类
+      }
+    })();
+    function Teacher(){
+      this.name = "zhangsan",
+      this.age = 40
+    }
+    Teacher.prototype = {
+      pSkill:'aasdfas'
+    }
+    inherit(Student,Teacher);
+    Student.prototype.name = "kajflaskjdlaskj";
+    var t = new Teacher();
+    function Student(){
+      this.hehe = "9999"
+    }
+    var s = new Student();
+    console.log(s);
+
   </script>
 </body>
 </html>

@@ -45,7 +45,7 @@
     num(); */
 
     // js插件的写法
-    ;(function(){ // 在立即执行函数前面加一个分号，是一种墨守成规的规定。因为连续写两个立即执行函数不写分号的话，会报错。分号可以在后面写，但是为了醒目一般写在前面
+    /* ;(function(){ // 在立即执行函数前面加一个分号，是一种墨守成规的规定。因为连续写两个立即执行函数不写分号的话，会报错。分号可以在后面写，但是为了醒目一般写在前面
       // 在里面写构造函数
       function Test(){
         console.log('阿萨德理发卡健身房')
@@ -56,7 +56,60 @@
       // 为了隔离全局的作用域，用立即执行函数包裹起来，这样，变量的作用域就被限制到了立即执行函数内部的作用域
     })();
 
-    var test = new Test();
+    var test = new Test(); */
+    /* ;(function(){
+      function Compute(opt){
+        this.x = opt.firstNum;
+        this.y = opt.secondNum;
+      }
+      Compute.prototype = { //方法要写到原型上，因为方法是特定的思维，不会改变。把定值卸载原型上
+        add:function(){
+          return this.x + this.y
+        },
+        minus:function(){
+          return this.x - this.y
+        },
+        mul:function(){
+          return this.x * this.y
+        },
+        div:function(){
+          return this.x / this.y
+        }
+      }
+      window.Compute = Compute;
+    })();
+
+    var compute = new Compute({
+      firstNum: 12,
+      secondNum: 13
+    });
+
+    var res = compute.add()
+    console.log(res) */
+
+    /* ;(function(){
+      function Compute(){}
+      Compute.prototype = { //方法要写到原型上，因为方法是特定的思维，不会改变。把定值卸载原型上
+        add:function(a,b){
+          return a + b
+        },
+        minus:function(a,b){
+          return a - b
+        },
+        mul:function(a,b){
+          return a * b
+        },
+        div:function(a,b){
+          return a / b
+        }
+      }
+      window.Compute = Compute;
+    })();
+
+    var compute = new Compute();
+
+    var res = compute.add(1,2)
+    console.log(res) */
   </script>
 </body>
 </html>

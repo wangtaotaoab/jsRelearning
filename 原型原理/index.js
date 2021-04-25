@@ -45,7 +45,7 @@ car.intro(); // 打印宝马，因为实例对象时候，this指向了实例对
 
   把另外对象作为当前对象的原型存在，这时候用Object.create
 */
-var test = {
+/* var test = {
   num:1
 }
 var a = Object.create(test)
@@ -57,16 +57,55 @@ var obj1 = Object.create(null);
 obj1.num = 1;
 var obj2 = Object.create(obj1);
 // console.log(obj2);
-// console.log(obj2.num);
+// console.log(obj2.num); */
 
 
-/* 
-    对象原型里有一个toString方法需要记住
-*/
+
+/* // 对象原型里有一个toString方法需要记住
 var obj = Object.create(null);
 obj.num = 2;
 
 var newObj = {
   num:3
 }
-var a = newObj.toString()
+var a = newObj.toString() */
+
+// call和apply方法
+/* function test(){
+  console.log("asdfasdfsa")
+}
+test();
+test.call();//函数在执行的时候，会在函数后面隐式的加上call方法 */
+
+/* function Car(brand,color){
+  this.brand = brand;
+  this.color = color;
+}
+var newCar = {}; 
+Car.call(newCar,"benz","red");
+Car.apply(newCar,["benz","red"]); //这个数组其实就是argument
+console.log(newCar); */
+
+/* function Compute(){
+  this.plus = function(a,b){
+    console.log(a + b);
+  }
+
+  this.minus = function(a,b){
+    console.log(a - b);
+  }
+}
+
+function FullCompute(){
+  Compute.apply(this);
+  this.mul = function(a,b){
+    console.log(a * b);
+  }
+
+  this.diy = function(a,b){
+    console.log(a / b);
+  }
+}
+
+var compute = new FullCompute();
+compute.plus(1,2); */
